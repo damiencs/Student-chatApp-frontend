@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { LoginFormComponent } from '../../../components/login-form/login-form.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -19,5 +20,9 @@ import { LoginFormComponent } from '../../../components/login-form/login-form.co
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
-  hide = true;
+  constructor(private router: Router) {}
+
+  login() {
+    this.router.navigate(['/main-menu']);
+  }
 }
