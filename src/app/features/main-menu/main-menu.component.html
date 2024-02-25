@@ -1,1 +1,25 @@
-<p>main-menu works!</p>
+<mat-sidenav-container class="example-container" autosize>
+  <mat-sidenav #drawer mode="side" opened="true">
+    <mat-nav-list>
+      <button mat-raised-button id="newChatBtn">
+        <mat-icon
+          ><span class="material-symbols-outlined">
+            chat_add_on
+          </span></mat-icon
+        >
+        Create new chat
+      </button>
+      <app-chat-tree></app-chat-tree>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary"
+      ><span>Student Chat</span><span class="flex-spacer"></span>
+      <mat-icon
+        ><span class="material-symbols-outlined"> person </span></mat-icon
+      >
+    </mat-toolbar>
+
+    <!-- Your page content here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>
