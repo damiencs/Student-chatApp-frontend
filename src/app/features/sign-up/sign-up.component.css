@@ -1,0 +1,14 @@
+.card-container {
+  height: 100vh; /* Use the full height of the viewport */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  text-align: center;
+  padding: 20px;
+}
+
+#signUp-card {
+  max-width: 600px;
+  padding: 20px;
+  align-items: center;
+}

@@ -3,6 +3,17 @@
   padding: 20px;
   align-items: center;
 }
+#signUpText {
+  padding-top: 10px;
+}
+
+a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: blue;
+  text-decoration-color: blue;
+}
+
 .card-container {
   height: 100vh; /* Use the full height of the viewport */
   display: flex;

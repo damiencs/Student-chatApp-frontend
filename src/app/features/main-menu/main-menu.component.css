@@ -1,4 +1,7 @@
-.example-container {
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 100%;
 }
 .flex-spacer {
@@ -6,4 +9,17 @@
 }
 #newChatBtn {
   padding: 3px;
+}
+mat-icon {
+  padding: 5px;
+}
+
+#logout {
+  display: flex;
+  padding: 3px;
+  cursor: pointer;
+  align-items: center;
+}
+#logout p {
+  margin-top: 8px;
 }

@@ -2,8 +2,18 @@
   <mat-card id="login-card">
     <mat-card-title>Login</mat-card-title>
     <mat-card-content><app-login-form></app-login-form></mat-card-content>
-    <button (click)="login()" class="button-width" mat-raised-button color="primary">
-      Login
-    </button>
+    <div>
+      <button
+        (click)="login()"
+        class="button-width"
+        mat-raised-button
+        color="primary"
+      >
+        Login
+      </button>
+    </div>
+    <div id="signUpText">
+      Don't have an account? <a class="link" (click)="signUp()">Sign Up</a>
+    </div>
   </mat-card>
 </div>

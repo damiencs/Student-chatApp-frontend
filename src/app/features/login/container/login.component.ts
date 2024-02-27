@@ -25,4 +25,8 @@ export class LoginComponent {
   login() {
     this.router.navigate(['/main-menu']);
   }
+
+  signUp() {
+    this.router.navigate(['/sign-up']);
+  }
 }
