@@ -1,17 +1,10 @@
 <div class="card-container">
   <mat-card id="login-card">
     <mat-card-title>Login</mat-card-title>
-    <mat-card-content><app-login-form></app-login-form></mat-card-content>
-    <div>
-      <button
-        (click)="login()"
-        class="button-width"
-        mat-raised-button
-        color="primary"
-      >
-        Login
-      </button>
-    </div>
+    <mat-card-content
+      ><app-login-form (formSubmit)="onFormSubmit($event)"></app-login-form
+    ></mat-card-content>
+
     <div id="signUpText">
       Don't have an account? <a class="link" (click)="signUp()">Sign Up</a>
     </div>

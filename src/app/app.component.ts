@@ -1,12 +1,20 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { HeaderComponent } from './features/header/header.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MatButtonModule, HeaderComponent],
+  imports: [
+    RouterOutlet,
+    MatButtonModule,
+    HeaderComponent,
+    FormsModule,
+    HttpClientModule,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

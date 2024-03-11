@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import {
   FormControl,
   Validators,
   FormsModule,
   ReactiveFormsModule,
+  FormBuilder,
+  FormGroup,
 } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -14,6 +16,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   selector: 'app-login-form',
   standalone: true,
   imports: [
+    ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
@@ -27,15 +30,20 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   styleUrl: './login-form.component.css',
 })
 export class LoginFormComponent {
-  email = new FormControl('', [Validators.required, Validators.email]);
+  form!: FormGroup;
+  @Output() formSubmit = new EventEmitter<any>();
 
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter a value';
-    }
+  constructor(private formBuilder: FormBuilder) {}
 
-    return this.email.hasError('email') ? 'Not a valid email' : '';
+  ngOnInit(): void {
+    this.form = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
+    });
   }
 
   hide = true;
+  onSubmit() {
+    this.formSubmit.emit(this.form.value);
+  }
 }

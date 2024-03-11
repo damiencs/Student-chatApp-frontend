@@ -5,7 +5,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { LoginFormComponent } from '../../../components/login-form/login-form.component';
 import { Router } from '@angular/router';
-
+import { LoginService } from '../../../services/login.service';
+import { loginModel } from '../../../models/login.model';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -15,15 +18,34 @@ import { Router } from '@angular/router';
     MatFormFieldModule,
     MatIconModule,
     LoginFormComponent,
+    MatSnackBarModule,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
-  constructor(private router: Router) {}
+  errorMessage: string | undefined;
+  constructor(
+    private router: Router,
+    private loginService: LoginService,
+    private snackBar: MatSnackBar
+  ) {}
 
-  login() {
-    this.router.navigate(['/main-menu']);
+  onFormSubmit(formData: loginModel) {
+    this.loginService.createUser(formData).subscribe(
+      (response: any) => {
+        this.router.navigate(['/main-menu']);
+      },
+      (error: any) => {
+        this.errorMessage =
+          error || 'An error occurred. Please try again later.';
+        this.snackBar.open(error, 'Close', {
+          duration: 5000,
+          verticalPosition: 'top',
+          panelClass: ['error-snackbar'], // Custom CSS class
+        });
+      }
+    );
   }
 
   signUp() {
